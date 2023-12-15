@@ -11,7 +11,7 @@ import com.example.cocktails.R
 import com.example.cocktails.databinding.CocktailsLayoutBinding
 import com.example.cocktails.domain.Cocktail
 
-class CocktailsAdapter(): ListAdapter<Cocktail, CocktailsAdapter.ViewHolder>(Diffutil()) {
+class MainAdapter(private val onClickListener: (Cocktail) -> Unit): ListAdapter<Cocktail, MainAdapter.ViewHolder>(Diffutil()) {
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view)
 
@@ -26,11 +26,15 @@ class CocktailsAdapter(): ListAdapter<Cocktail, CocktailsAdapter.ViewHolder>(Dif
 
         val item = currentList[position]
 
-        binding.cocktailName.text = item.name
+        binding.cocktailListName.text = item.name
 
         //binding.root.setOnClickListener{}
 
-        Glide.with(holder.itemView).load(item.src).into(binding.cocktailImage)
+        Glide.with(holder.itemView).load(item.src).into(binding.cocktailListImage)
+
+        binding.root.setOnClickListener{
+            onClickListener.invoke(item)
+        }
     }
 
     private class Diffutil(): DiffUtil.ItemCallback<Cocktail>() {

@@ -13,7 +13,7 @@
         android:padding="8dp">
         
         <TextView
-            android:id="@+id/cocktailName"
+            android:id="@+id/cocktailListName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -24,10 +24,10 @@
             android:text="Example"/>
 
         <ImageView
-            android:id="@+id/cocktailImage"
+            android:id="@+id/cocktailListImage"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            app:layout_constraintTop_toBottomOf="@id/cocktailName"
+            app:layout_constraintTop_toBottomOf="@id/cocktailListName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
